@@ -24,7 +24,7 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Install dependencies
-        run: nix profile install --inputs-from .#
+        run: nix profile install --inputs-from .?submodules=1
 
       - uses: actions-rs/toolchain@v1
         name: Install rust toolchain

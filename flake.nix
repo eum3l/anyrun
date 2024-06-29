@@ -28,7 +28,7 @@
         ...
       }: let
         inherit (pkgs) callPackage;
-      in {
+      in rec {
         # provide the formatter for nix fmt
         formatter = pkgs.alejandra;
 
@@ -46,7 +46,8 @@
             clippy # opinionated rust formatter
           ];
         };
-
+  
+        checks = packages;
         packages = let
           lockFile = ./Cargo.lock;
 

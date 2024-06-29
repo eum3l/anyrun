@@ -23,7 +23,7 @@ jobs:
         run: nix flake update
 
       - name: Install dependencies
-        run: nix profile install --inputs-from . nixpkgs#cargo-bump nixpkgs#cargo
+        run: nix profile install --inputs-from .?submodules=1 nixpkgs#cargo-bump nixpkgs#cargo
 
       - name: Bump rust
         run: |
